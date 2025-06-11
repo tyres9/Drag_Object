@@ -29,4 +29,30 @@ class DraggableRect{
     center(){
         return createVector(this.x + this.w/2, this.y + this.h/2);
     }
+
+    //Calculate boundary intersection for arrow end point
+    //Returns point on boundary where a line from start poimt to center touches rectangle border
+    boundaryIntersection(){
+        let cx =this.x;
+        let cy = this.y;
+        let cw = this.w;
+        let ch = this.h;
+
+        //vector from startPt to center
+        let centerPt = this.center;
+        let dx = centerPt.x - startPt.x;
+        let dy = centerPt.y - startPt.y;
+
+        if (dx ===0 && dy === 0) return centerPt.copy();
+
+        //Rectangle boundaries
+        let left = cx;
+        let right = cx + cw;
+        let top = cy;
+        let bottom = cy + ch;
+
+        let tValues = [];
+
+        
+    }
 }
