@@ -1,18 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/addons/p5.sound.min.js"></script> -->
-    <link rel="stylesheet" type="text/css" href="CSS/style.css">
-    <meta charset="utf-8" />
+<head>
+  <meta charset="UTF-8" />
+  <title>Draggable Named Rectangles with Connections</title>
+  <script src="JS/p5.min.js"></script>
+ <script src="JS/xlsx.full.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 10px;
+    }
+    #buttons {
+	position:fixed;
+	top:10x ;
+	z-index:1000;
+    }
+    #canvas-container {
+	position:absolute;
+	top:60px;
+	margin:10px;
+      border-top: 1px solid #ccc;
+	overflow:auto;
+          }
+	canvas{
+	display:block;
+	}
 
-  </head>
-  <body>
-    <div>
-       <button id = "addRectBtn">Add Rectangle</button>
-       <button id = "connectBtn">Connect</button>
-    </div>
-    <script src="JS/sketch.js"></script>
-    <script src="JS/drag.js"></script>
-  </body>
+  </style>
+</head>
+<body>
+  <div id="buttons">
+    <button id="addRectBtn">Add Rectangle</button>
+    <button id="connectBtn">Connect</button>
+    <button id="deleteBtn">Delete Rec</button>	
+    <button id="disconnectBtn">Disconnect</button>
+	 <input type="file" id="uploadExcel" accept=".xlsx, .xls" />		
+  </div>
+  <div id="canvas-container"></div>
+
+	<script src="JS/sketch.js"></script>
+	<script src="JS/Drag.js"></script>
+	<script src="JS/connect.js"></script>
+</body>
 </html>
