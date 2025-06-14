@@ -13,7 +13,7 @@
 
     function setup() {
      const container = document.getElementById('canvas-container');
-      canvas = createCanvas(windowWidth*2, windowHeight*2);
+      canvas = createCanvas(windowWidth*3, windowHeight*4);
       canvas.parent(container);
 
       // Prevent default context menu on right-click for canvas
@@ -186,34 +186,7 @@
 		}selectedRects=[] 	
     }
 
-    document.getElementById('uploadExcel').addEventListener('change', function (e) {
-      const file = e.target.files[0];
-      const reader = new FileReader();
-
-      reader.onload = function (e) {
-        const data = new Uint8Array(e.target.result);
-        const workbook = XLSX.read(data, { type: 'array' });
-
-        const sheetName = workbook.SheetNames[0];
-        const worksheet = workbook.Sheets[sheetName];
-        const jsonData = XLSX.utils.sheet_to_json(worksheet);
-
-        if (jsonData.length === 0) {
-          document.getElementById('output').innerHTML = '<p>No data found in Excel file.</p>';
-          return;
-        }
-			
-			let newRect= jsonData.map(row => new DraggableRect(row.x, row.y, row.w, row.h, row.caption,row.bopKey));
-			
-			for (let i = newRect.length - 1; i >= 0; i--){
-				rectangles.push(newRect[i]);
-				}
-                	};
-
-			reader.readAsArrayBuffer(file);
-			
-	});
-
+   
 
 
 
